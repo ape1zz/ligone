@@ -107,6 +107,36 @@ function applyLanguage(lang) {
     localStorage.setItem(LANG_KEY, lang);
 }
 
+/* ============ Переключение темы ============ */
+const THEME_KEY = 'ligone-theme';
+const themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(theme) {
+    if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+
+    if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (themeToggle) themeToggle.textContent = '🌙';
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+        if (themeToggle) themeToggle.textContent = '☀️';
+    }
+
+    localStorage.setItem(THEME_KEY, theme);
+}
+
+function initTheme() {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === 'light' || saved === 'dark') {
+        applyTheme(saved);
+        return;
+    }
+    // Иначе — по системной теме
+    const prefersLight = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(prefersLight ? 'light' : 'dark');
+}
+
 /* ============ Подстановка имени файла в ссылки ============ */
 function applyDownloadFile() {
     document.querySelectorAll('[data-download]').forEach(link => {
@@ -117,6 +147,9 @@ function applyDownloadFile() {
 
 /* ============ Инициализация ============ */
 document.addEventListener('DOMContentLoaded', () => {
+    // Тема — до отрисовки анимаций, чтобы не было вспышки
+    initTheme();
+
     // Имя файла для скачивания
     applyDownloadFile();
 
@@ -125,10 +158,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const browserLang = (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
     applyLanguage(saved || browserLang);
 
-    // Кнопки переключения
+    // Кнопки переключения языка
     document.querySelectorAll('.lang-switch button').forEach(btn => {
         btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
     });
+
+    // Кнопка переключения темы
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            applyTheme(isLight ? 'dark' : 'light');
+        });
+    }
 
     // Плавная прокрутка по якорям
     document.querySelectorAll('a[href^="#"]').forEach(link => {
