@@ -1,0 +1,381 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --orange: #ff7a1a;
+    --orange-light: #ff9a3c;
+    --orange-dark: #e05e00;
+    --bg: #14100c;
+    --bg-card: #1e1710;
+    --text: #f5ede4;
+    --text-dim: #b8a894;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+/* Шапка */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(20, 16, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 122, 26, 0.2);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.logo span { color: var(--text); }
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--orange); }
+
+/* Переключатель языков */
+.lang-switch {
+    display: flex;
+    gap: 0.2rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 122, 26, 0.2);
+    border-radius: 8px;
+    padding: 0.2rem;
+    flex-shrink: 0;
+}
+
+.lang-switch button {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.8rem;
+    font-family: inherit;
+    transition: background 0.2s, color 0.2s;
+}
+
+.lang-switch button:hover:not(.active) { color: var(--orange); }
+
+.lang-switch button.active {
+    background: var(--orange);
+    color: #fff;
+}
+
+/* Герой */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 7rem 2rem 6rem;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255, 122, 26, 0.25), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(255, 122, 26, 0.1), transparent 50%);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--orange);
+    border-radius: 50px;
+    color: var(--orange);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    animation: fadeInUp 0.8s ease 0.1s both;
+}
+
+.hero h1 .accent {
+    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 660px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(255, 122, 26, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(255, 122, 26, 0.5);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 122, 26, 0.5);
+    color: var(--orange);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 122, 26, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Технологии */
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    max-width: 800px;
+    margin: 3rem auto 0;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.tech span {
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 122, 26, 0.2);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.tech span b { color: var(--orange-light); font-weight: 600; }
+
+/* Секции */
+section { padding: 5rem 2rem; }
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+}
+
+.section-sub {
+    text-align: center;
+    color: var(--text-dim);
+    max-width: 620px;
+    margin: 0 auto 3.5rem;
+}
+
+/* Карточки функций */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 122, 26, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--orange);
+    box-shadow: 0 15px 35px rgba(255, 122, 26, 0.15);
+}
+
+.card-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    border-radius: 12px;
+    background: rgba(255, 122, 26, 0.12);
+    border: 1px solid rgba(255, 122, 26, 0.3);
+    margin-bottom: 1.2rem;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    color: var(--orange-light);
+}
+
+.card p { color: var(--text-dim); font-size: 0.95rem; }
+
+.card code,
+.step code,
+.note code {
+    background: rgba(255, 122, 26, 0.12);
+    color: var(--orange-light);
+    padding: 0.1rem 0.4rem;
+    border-radius: 5px;
+    font-size: 0.85em;
+}
+
+/* Блок установки */
+.install {
+    background: linear-gradient(135deg, rgba(255, 122, 26, 0.12), rgba(255, 122, 26, 0.03));
+    border-top: 1px solid rgba(255, 122, 26, 0.2);
+    border-bottom: 1px solid rgba(255, 122, 26, 0.2);
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    counter-reset: step;
+}
+
+.step {
+    position: relative;
+    padding: 2rem 1.5rem 1.5rem;
+    background: var(--bg-card);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 122, 26, 0.15);
+}
+
+.step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    top: -18px;
+    left: 1.5rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: #fff;
+    font-weight: 800;
+}
+
+.step h4 { margin-bottom: 0.4rem; color: var(--orange-light); }
+.step p { color: var(--text-dim); font-size: 0.92rem; }
+
+.note {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--orange);
+    background: rgba(255, 122, 26, 0.08);
+    border-radius: 8px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.note b { color: var(--orange-light); }
+
+/* CTA */
+.cta {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Футер */
+footer {
+    background: #0e0b08;
+    border-top: 1px solid rgba(255, 122, 26, 0.15);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+footer a { color: var(--orange); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+.footer-link { margin-top: 0.5rem; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 5rem 1.2rem 4rem; }
+    section { padding: 3.5rem 1.2rem; }
+    .btn { padding: 0.8rem 1.5rem; }
+    nav { padding: 1rem 1.2rem; }
+}

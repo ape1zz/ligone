@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ligone Launcher — Minecraft Launcher</title>
+    <meta name="description" content="Ligone Launcher — десктопный лаунчер Minecraft на Tauri 2 с офлайн-входом, Ely.by, инстансами и браузером модов Modrinth/CurseForge.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">🟠 Ligone <span>Launcher</span></div>
+            <ul class="nav-links">
+                <li><a href="#features" data-i18n="navFeatures">Возможности</a></li>
+                <li><a href="#install" data-i18n="navDownload">Скачать</a></li>
+                <li><a href="https://github.com/ape1zz/Ligone-Launcher" target="_blank" rel="noopener" data-i18n="navGithub">GitHub</a></li>
+            </ul>
+            <div class="lang-switch" role="group" aria-label="Language">
+                <button type="button" data-lang="ru" class="active">RU</button>
+                <button type="button" data-lang="en">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge" data-i18n="heroBadge">Minecraft · Tauri 2 · React 19 + Rust</div>
+        <h1>Ligone <span class="accent">Launcher</span></h1>
+        <p data-i18n="heroDesc">Лаунчер Minecraft с офлайн-входом и Ely.by, инстансами, браузером модов Modrinth и CurseForge и автоматическим подбором Java. Лёгкий десктоп на Tauri 2.</p>
+        <div class="hero-buttons">
+            <a href="./ligone-launcher_0.1.0_x64-setup.exe" download class="btn btn-primary" data-i18n="heroBtnDownload" data-download>⬇ Скачать</a>
+            <a href="#features" class="btn btn-outline" data-i18n="heroBtnFeatures">Возможности</a>
+        </div>
+        <div class="tech">
+            <span data-i18n="techFrontend">Фронтенд: <b>React 19 + TypeScript (Vite)</b></span>
+            <span data-i18n="techBackend">Бэкенд: <b>Rust</b></span>
+            <span data-i18n="techShell">Оболочка: <b>Tauri 2</b></span>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="featuresTitle">Возможности</h2>
+            <p class="section-sub" data-i18n="featuresSubtitle">Всё для комфортной игры — от аккаунтов до модов и запуска.</p>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">👤</div>
+                    <h3 data-i18n="card1Title">Аккаунты</h3>
+                    <p data-i18n="card1Desc">Офлайн-вход (UUID как <code>nameUUIDFromBytes</code> в Java) и Ely.by — OAuth (рекомендуется) или вход по паролю. Аккаунты сохраняются, токены Ely.by — в OS keyring (Windows Credential Manager), на диске секретов нет.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <h3 data-i18n="card2Title">Инстансы</h3>
+                    <p data-i18n="card2Desc">Создание, переименование и удаление. Скачивание выбранной версии Minecraft и Fabric (jar, библиотеки, ассеты) с проверкой по sha1 — валидные файлы не скачиваются повторно. У каждого инстанса свои <code>mods/</code>, <code>resourcepacks/</code>, <code>shaderpacks/</code>, <code>saves/</code>.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧩</div>
+                    <h3 data-i18n="card3Title">Браузер контента</h3>
+                    <p data-i18n="card3Desc">Поиск и установка модов и ресурспаков с Modrinth и CurseForge. Всегда фильтр по версии игры, для Fabric — по загрузчику. Зависимости модов ставятся автоматически. CurseForge — при наличии <code>CURSEFORGE_API_KEY</code>, иначе только Modrinth.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">☕</div>
+                    <h3 data-i18n="card4Title">Автоподбор Java</h3>
+                    <p data-i18n="card4Desc">Пользовательский путь → рантайм Mojang (скачивается без UAC/MSI) → системная Java. Нужная версия подбирается автоматически.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3 data-i18n="card5Title">Запуск игры</h3>
+                    <p data-i18n="card5Desc">JVM-аргументы, распаковка нативных библиотек, authlib-injector — скины по нику работают и офлайн. Лог пишется в <code>&lt;инстанс&gt;/launcher.log</code>, при аварийном выходе ошибка показывается в UI.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 data-i18n="card6Title">Интерфейс</h3>
+                    <p data-i18n="card6Desc">Тёмная и светлая темы, русский и английский языки. Аккуратный десктопный UI на React.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="install" id="install">
+        <div class="container">
+            <h2 class="section-title" data-i18n="installTitle">Как начать</h2>
+            <p class="section-sub" data-i18n="installSubtitle">Скачайте установщик лаунчера, запустите его и настройте Ely.by для входа через этот сервис.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <h4 data-i18n="step1Title">Скачайте установщик</h4>
+                    <p data-i18n="step1Desc">Нажмите кнопку «Скачать» — файл <code>ligone-launcher_0.1.0_x64-setup.exe</code> загрузится на ваш компьютер.</p>
+                </div>
+                <div class="step">
+                    <h4 data-i18n="step2Title">Запустите</h4>
+                    <p data-i18n="step2Desc">Откройте <code>ligone-launcher_0.1.0_x64-setup.exe</code> и следуйте инструкциям установщика.</p>
+                </div>
+                <div class="step">
+                    <h4 data-i18n="step3Title">Настройте Ely.by</h4>
+                    <p data-i18n="step3Desc">Для OAuth/парольного входа укажите <code>ELYBY_CLIENT_ID</code> и <code>ELYBY_CLIENT_SECRET</code> в <code>%APPDATA%\.ligone\.env</code> или переменных окружения.</p>
+                </div>
+            </div>
+
+            <div class="note" data-i18n="installNote">
+                <b>Для release-сборки:</b> Redirect URI для OAuth — <code>http://localhost:8921/ely/callback</code> (в dev — <code>http://localhost:1420/ely/callback</code>). Его нужно зарегистрировать в приложении Ely.by и при необходимости задать <code>ELYBY_REDIRECT_URI</code>. Переменные окружения имеют приоритет над <code>.env</code>, секреты нигде не хардкодятся.
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 data-i18n="ctaTitle">Готовы играть?</h2>
+            <p data-i18n="ctaDesc">Скачайте установщик Ligone Launcher или соберите из исходников — проект открыт.</p>
+            <a href="./ligone-launcher_0.1.0_x64-setup.exe" download class="btn btn-primary" data-i18n="ctaBtn" data-download>Скачать установщик</a>
+        </div>
+    </section>
+
+    <footer>
+        <p data-i18n="footerCopy">© 2025 Ligone Launcher. Проект с открытым исходным кодом.</p>
+        <p class="footer-link">
+            <a href="https://github.com/ape1zz/Ligone-Launcher" target="_blank" rel="noopener">github.com/ape1zz/Ligone-Launcher</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
