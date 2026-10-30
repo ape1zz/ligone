@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ligone Launcher — Minecraft Launcher</title>
-    <meta name="description" content="Ligone Launcher — десктопный лаунчер Minecraft на Tauri 2 с офлайн-входом, Ely.by, инстансами и браузером модов Modrinth/CurseForge.">
+    <meta name="description" content="Ligone Launcher — десктопный лаунчер Minecraft на Tauri 2 с офлайн-входом, Ely.by, инстансами, поддержкой Fabric/Forge и браузером контента Modrinth/CurseForge.">
 
     <!-- Фавикон (иконка во вкладке браузера) -->
     <link rel="icon" type="image/png" href="logo2.png">
@@ -23,7 +23,7 @@
             <ul class="nav-links">
                 <li><a href="#features" data-i18n="navFeatures">Возможности</a></li>
                 <li><a href="#install" data-i18n="navDownload">Скачать</a></li>
-                <li><a href="https://github.com/ape1zz/Ligone-Launcher" target="_blank" rel="noopener" data-i18n="navGithub">GitHub</a></li>
+                <li><a href="https://github.com/ape1zz/ligone-launcher" target="_blank" rel="noopener" data-i18n="navGithub">GitHub</a></li>
             </ul>
             <div class="header-controls">
                 <div class="lang-switch" role="group" aria-label="Language">
@@ -38,9 +38,9 @@
     <section class="hero">
         <div class="hero-badge" data-i18n="heroBadge">Minecraft · Tauri 2 · React 19 + Rust</div>
         <h1>Ligone <span class="accent">Launcher</span></h1>
-        <p data-i18n="heroDesc">Лаунчер Minecraft с офлайн-входом и Ely.by, инстансами, браузером модов Modrinth и CurseForge и автоматическим подбором Java. Лёгкий десктоп на Tauri 2.</p>
+        <p data-i18n="heroDesc">Лаунчер Minecraft с офлайн-входом и Ely.by, инстансами, поддержкой Fabric и Forge, а также браузером модов, ресурспаков и шейдеров с Modrinth и CurseForge.</p>
         <div class="hero-buttons">
-            <a href="./ligone-launcher_0.1.0_x64-setup.exe" download class="btn btn-primary" data-i18n="heroBtnDownload" data-download>⬇ Скачать</a>
+            <a href="./ligone-launcher_x64-setup.exe" download class="btn btn-primary" data-i18n="heroBtnDownload" data-download>⬇ Скачать</a>
             <a href="#features" class="btn btn-outline" data-i18n="heroBtnFeatures">Возможности</a>
         </div>
         <div class="tech">
@@ -53,23 +53,23 @@
     <section id="features">
         <div class="container">
             <h2 class="section-title" data-i18n="featuresTitle">Возможности</h2>
-            <p class="section-sub" data-i18n="featuresSubtitle">Всё для комфортной игры — от аккаунтов до модов и запуска.</p>
+            <p class="section-sub" data-i18n="featuresSubtitle">Всё для комфортной игры — от аккаунтов до модов, шейдеров и запуска.</p>
 
             <div class="cards">
                 <div class="card">
                     <div class="card-icon">👤</div>
                     <h3 data-i18n="card1Title">Аккаунты</h3>
-                    <p data-i18n="card1Desc">Офлайн-вход (UUID как <code>nameUUIDFromBytes</code> в Java) и Ely.by — OAuth (рекомендуется) или вход по паролю. Аккаунты сохраняются, токены Ely.by — в OS keyring (Windows Credential Manager), на диске секретов нет.</p>
+                    <p data-i18n="card1Desc">Офлайн-вход (UUID как <code>nameUUIDFromBytes</code> в Java) и Ely.by — OAuth (рекомендуется) или вход по паролю. Ely.by работает из коробки, без настройки. Аккаунты сохраняются, токены — в OS keyring (Windows Credential Manager), на диске секретов нет.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">📦</div>
                     <h3 data-i18n="card2Title">Инстансы</h3>
-                    <p data-i18n="card2Desc">Создание, переименование и удаление. Скачивание выбранной версии Minecraft и Fabric (jar, библиотеки, ассеты) с проверкой по sha1 — валидные файлы не скачиваются повторно. У каждого инстанса свои <code>mods/</code>, <code>resourcepacks/</code>, <code>shaderpacks/</code>, <code>saves/</code>.</p>
+                    <p data-i18n="card2Desc">Создание, переименование и удаление. Скачивание выбранной версии Minecraft с vanilla, Fabric или Forge (jar, библиотеки, ассеты) с проверкой по sha1 — валидные файлы не скачиваются повторно. Forge ставится через официальный установщик (1.13+; для 26.1+ Forge не существует — лаунчер предупредит). У каждого инстанса свои <code>mods/</code>, <code>resourcepacks/</code>, <code>shaderpacks/</code>, <code>saves/</code>.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🧩</div>
                     <h3 data-i18n="card3Title">Браузер контента</h3>
-                    <p data-i18n="card3Desc">Поиск и установка модов и ресурспаков с Modrinth и CurseForge. Всегда фильтр по версии игры, для Fabric — по загрузчику. Зависимости модов ставятся автоматически. CurseForge — при наличии <code>CURSEFORGE_API_KEY</code>, иначе только Modrinth.</p>
+                    <p data-i18n="card3Desc">Поиск и установка модов, ресурспаков и шейдерпаков с Modrinth и CurseForge. Всегда фильтр по версии игры, для модов — ещё и по загрузчику (Fabric/Forge). Зависимости модов ставятся автоматически. CurseForge требует <code>CURSEFORGE_API_KEY</code>, без ключа доступен только Modrinth.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">☕</div>
@@ -93,25 +93,25 @@
     <section class="install" id="install">
         <div class="container">
             <h2 class="section-title" data-i18n="installTitle">Как начать</h2>
-            <p class="section-sub" data-i18n="installSubtitle">Скачайте установщик лаунчера, запустите его и настройте Ely.by для входа через этот сервис.</p>
+            <p class="section-sub" data-i18n="installSubtitle">Скачайте установщик, запустите его — и можно играть. Ely.by уже настроен.</p>
 
             <div class="steps">
                 <div class="step">
                     <h4 data-i18n="step1Title">Скачайте установщик</h4>
-                    <p data-i18n="step1Desc">Нажмите кнопку «Скачать» — файл <code>ligone-launcher_0.1.0_x64-setup.exe</code> загрузится на ваш компьютер.</p>
+                    <p data-i18n="step1Desc">Нажмите кнопку «Скачать» — файл <code>ligone-launcher_x64-setup.exe</code> загрузится на ваш компьютер.</p>
                 </div>
                 <div class="step">
-                    <h4 data-i18n="step2Title">Запустите</h4>
-                    <p data-i18n="step2Desc">Откройте <code>ligone-launcher_0.1.0_x64-setup.exe</code> и следуйте инструкциям установщика.</p>
+                    <h4 data-i18n="step2Title">Установите и запустите</h4>
+                    <p data-i18n="step2Desc">Откройте <code>ligone-launcher_x64-setup.exe</code>, следуйте инструкциям установщика и запустите лаунчер.</p>
                 </div>
                 <div class="step">
-                    <h4 data-i18n="step3Title">Настройте Ely.by</h4>
-                    <p data-i18n="step3Desc">Для OAuth/парольного входа укажите <code>ELYBY_CLIENT_ID</code> и <code>ELYBY_CLIENT_SECRET</code> в <code>%APPDATA%\.ligone\.env</code> или переменных окружения.</p>
+                    <h4 data-i18n="step3Title">Войдите и играйте</h4>
+                    <p data-i18n="step3Desc">Выберите офлайн-аккаунт или Ely.by (работает сразу), создайте инстанс с нужной версией и запускайте игру.</p>
                 </div>
             </div>
 
             <div class="note" data-i18n="installNote">
-                <b>Для release-сборки:</b> Redirect URI для OAuth — <code>http://localhost:8921/ely/callback</code> (в dev — <code>http://localhost:1420/ely/callback</code>). Его нужно зарегистрировать в приложении Ely.by и при необходимости задать <code>ELYBY_REDIRECT_URI</code>. Переменные окружения имеют приоритет над <code>.env</code>, секреты нигде не хардкодятся.
+                <b>Важно:</b> готовые сборки также лежат на вкладке <b>Releases</b> в GitHub. Для CurseForge нужен <code>CURSEFORGE_API_KEY</code>, без него поиск работает только через Modrinth. Forge недоступен для версий 26.1+ — лаунчер предупредит при создании такого инстанса.
             </div>
         </div>
     </section>
@@ -119,15 +119,15 @@
     <section class="cta">
         <div class="container">
             <h2 data-i18n="ctaTitle">Готовы играть?</h2>
-            <p data-i18n="ctaDesc">Скачайте установщик Ligone Launcher или соберите из исходников — проект открыт.</p>
-            <a href="./ligone-launcher_0.1.0_x64-setup.exe" download class="btn btn-primary" data-i18n="ctaBtn" data-download>Скачать установщик</a>
+            <p data-i18n="ctaDesc">Скачайте Ligone Launcher или соберите из исходников — проект открыт.</p>
+            <a href="./ligone-launcher_x64-setup.exe" download class="btn btn-primary" data-i18n="ctaBtn" data-download>Скачать установщик</a>
         </div>
     </section>
 
     <footer>
         <p data-i18n="footerCopy">© 2025 Ligone Launcher. Проект с открытым исходным кодом.</p>
         <p class="footer-link">
-            <a href="https://github.com/ape1zz/Ligone-Launcher" target="_blank" rel="noopener">github.com/ape1zz/Ligone-Launcher</a>
+            <a href="https://github.com/ape1zz/ligone-launcher" target="_blank" rel="noopener">github.com/ape1zz/ligone-launcher</a>
         </p>
     </footer>
 
