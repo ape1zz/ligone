@@ -1,6 +1,6 @@
 /* ============ Имя файла для скачивания ============ */
 // Меняйте только здесь при выходе новой версии
-const DOWNLOAD_FILE = 'ligone-launcher_0.1.0_x64-setup.exe';
+const DOWNLOAD_FILE = 'ligone-launcher_x64-setup.exe';
 
 /* ============ Переводы ============ */
 const translations = {
